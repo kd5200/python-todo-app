@@ -7,9 +7,10 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 db = SQLAlchemy(app)
 
-class Todo(db.model):
+class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.string(200), nullable=False)
+    content = db.Column(db.String(200), nullable=False)
+    completed = db.Column(db.Integer, default=0)
     date_create = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
