@@ -2,12 +2,12 @@
 body, html {
     margin: 0;
     font-family: sans-serif;
-    background-color: white;
 }
-
 .content {
     margin: 0 auto;
     width: 400px;
+    background:linear-gradient(-45deg, #23d5ab,#23a6d5,#e73c7e, #ee7752);
+    
 }
 
 table, td, th {

@@ -6,7 +6,7 @@
 
 {% block body %} 
 <div class="content">
-    <h1 style="text-align: center">My Python Task App</h1>
+    <h1 style="text-align: center; color: white;">My Python Task App</h1>
 
     {% if tasks|length < 1 %}
     <h2 style="text-align: center">There are no tasks. Add one below</h2>
@@ -14,18 +14,21 @@
 
     <table>
         <tr>
-            <th>Task</th>
-            <th>Added</th>
-            <th>Actions</th>
+            <th style="color: white">Task</th>
+            <th style="color: white">Added</th>
+            <th style="color: white">Actions</th>
         </tr>
         {% for task in tasks %}
         <tr>
-            <td>{{task.content}}</td>
-            <td>{{task.date_create.date()}}</td>
+            <td style="color: white">{{task.content}}</td>
+            <td style="color: white">{{task.date_create.date()}}</td>
             <td>
-                <a href="/delete/{{task.id}}">Delete</a>
-                <br>
-                <a href="/update/{{task.id}}">Update</a>
+                <div style="display: flex; justify-content: space-around">
+
+                    <button style="padding: 2px"><a href="/delete/{{task.id}}">Delete</a></button> 
+                     <br>
+                     <button style="padding: 2px"><a href="/update/{{task.id}}">Update</a></button>
+                </div>
             </td>
         </tr>
         {% endfor %}
