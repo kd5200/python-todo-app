@@ -1,5 +1,3 @@
-from distutils.log import debug
-from email.policy import default
 from flask import Flask, render_template, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -17,7 +15,7 @@ class Todo(db.Model):
         return '<Task %>' % self.id
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
 
