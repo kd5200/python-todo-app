@@ -1,17 +1,20 @@
 {% extends 'base.html'%}
 
 {% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 <title>My App</title>
 {% endblock %}
 
 {% block body %} 
 <div class="content">
-    <h1 style="text-align: center; color: white">Update Task</h1>
+    <h1 style="text-align: center; color: black">Update Task</h1>
 
-
-    <form action="/update/{{task.id}}" method="POST">
+<div class="update-form">
+    <form  action="/update/{{task.id}}" method="POST">
         <input type="text" name="content" id="content" value="{{task.content}}">
         <input type="submit" value="Update">
     </form>
+</div>
+
 </div>
 {% endblock %}

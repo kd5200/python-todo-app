@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA_Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <title>Login</title>
+</head>
+
+<body>
+  <h1>Login Page</h1>
+
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    {{ form.username }}
+    {{ form.password }}
+    <button>{{ form.submit }}</button>
+
+  </form>
+
+  <a href="{{url_for('register')}}">Dont have an account? Sign up here!</a><br>
+  </body>
+</html>
