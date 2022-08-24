@@ -7,6 +7,7 @@
 - Read All Tasks From DB
 - Update Task
 - Delete Task 
+- (CRUD haha^)
 - Logs In User
 - Registers New Users 
 - Logs Out Users
