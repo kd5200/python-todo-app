@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html>
+  {% extends 'bootstrap/base.html' %}
+{% block scripts %}
+  {{ super() }}
+  {{ datepicker.loader() }} {# to load jQuery-ui #}
+  {{ datepicker.picker(id=".dp") }}
+
 
 <head>
   <meta charset="utf-8">
@@ -10,6 +16,9 @@
 </head>
 
 <body>
-    {% block body %}{% endblock %}
+    {% block body %}
+    
+    {% endblock %}
 </body>
 </html>
+{% endblock %}

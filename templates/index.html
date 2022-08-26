@@ -19,12 +19,26 @@
         <tr>
             <th style="color: white">Task</th>
             <th style="color: white">Added</th>
+            <th style="color: white">Complete</th>
+            <th style="color: white">Due Date</th>
             <th style="color: white">Actions</th>
         </tr>
         {% for task in tasks %}
         <tr>
             <td style="color: white">{{task.content}}</td>
             <td style="color: white">{{task.date_create.date()}}</td>
+            <td style="color: white">
+                <div>
+                  <input type="checkbox" id="complete" name="complete">
+                  <label for="complete">Complete</label>
+                </div>
+              </td>
+              <td style="color: white">
+                <div>
+                  <input type="date" id="duedate" name="due">
+                  <label for="Due-Date"></label>
+                </div>
+              <td style="color: white"></td>
             <td>
                 <div style="display: flex; justify-content: space-around">
 
@@ -37,7 +51,7 @@
         {% endfor %}
     </table>
     {% endif %}
-    <form action="/home" method="POST">
+    <form action="/home" method="POST" name="myform">
         <input type="text" name="content" id="content">
         <input type="submit" value="Add Task">
     </form>

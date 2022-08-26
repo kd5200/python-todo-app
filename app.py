@@ -1,14 +1,16 @@
-from logging import exception
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import InputRequired, Length, ValidationError
+from wtforms import StringField, PasswordField, SubmitField, validators, DateField 
+from wtforms.validators import InputRequired, Length, ValidationError, DataRequired
 from flask_bcrypt import Bcrypt
+from flask_datepicker import datepicker 
+from flask_bootstrap import Bootstrap
+
 
 
 
@@ -19,6 +21,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SECRET_KEY'] = 'SECRETKEYKD'
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
+datepicker(app)
+Bootstrap(app)
 
 
 login_manager = LoginManager()
@@ -31,13 +35,11 @@ class Todo(db.Model):
     content = db.Column(db.String(200), nullable=False)
     completed = db.Column(db.Integer, default=0)
     date_create = db.Column(db.DateTime, default=datetime.utcnow)
-
+    
+    
     def __repr__(self):
         return '<Task %>' % self.id
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
 
 
 class User(db.Model, UserMixin):
@@ -70,6 +72,10 @@ class loginform(FlaskForm):
         min=4, max=50)], render_kw={"placeholder": "Password"})
 
     submit = SubmitField("Login")
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -125,6 +131,8 @@ def index():
     else:
         tasks = Todo.query.order_by(Todo.date_create).all()
         return render_template('index.html', tasks=tasks)
+
+
     
 @app.route('/delete/<int:id>')
 def delete(id):
@@ -153,6 +161,10 @@ def update(id):
             return 'there was an issue updating that task'
     else:
         return render_template('update.html', task=task)
+
+
+    
+
 
 if __name__ == "__main__":
     app.run(debug =True) 
