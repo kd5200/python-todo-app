@@ -11,6 +11,10 @@
 - Logs In User
 - Registers New Users 
 - Logs Out Users
+- Mark Tasks As Complete
+- Add Due Dates To Tasks 
+
+
 #
 
 
@@ -34,7 +38,7 @@
 
  **Register Page** ![RegistrationPage](./static/images/registration_page.PNG)
 
- **Task Page** ![TaskPage](./static/images/Home_page.PNG)
+ **Task Page** ![TaskPage](./static/images/Home_page2.PNG)
 
 
  **Update Page** ![UpdatePage](./static/images/update_page.PNG)
