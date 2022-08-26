@@ -38,7 +38,7 @@
 
  **Register Page** ![RegistrationPage](./static/images/registration_page.PNG)
 
- **Task Page** ![TaskPage](./static/images/Home_page2.PNG)
+ **Task Page** ![TaskPage](./static/images/Homepage_2.PNG)
 
 
  **Update Page** ![UpdatePage](./static/images/update_page.PNG)
