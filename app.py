@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
+from datetime import date, datetime
 from werkzeug.security import generate_password_hash
 from werkzeug.security import check_password_hash
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user
@@ -8,8 +8,8 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, validators, DateField 
 from wtforms.validators import InputRequired, Length, ValidationError, DataRequired
 from flask_bcrypt import Bcrypt
-from flask_datepicker import datepicker 
 from flask_bootstrap import Bootstrap
+from flask_migrate import Migrate
 
 
 
@@ -17,11 +17,11 @@ from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'SECRETKEYKD'
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
-datepicker(app)
+migrate = Migrate(app, db)
 Bootstrap(app)
 
 
@@ -33,12 +33,14 @@ login_manager.login_view = 'login'
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.String(200), nullable=False)
-    completed = db.Column(db.Integer, default=0)
+    completed = db.Column(db.String(200), nullable=False)
     date_create = db.Column(db.DateTime, default=datetime.utcnow)
+    date_due = db.Column(db.String(200), nullable=False)
     
     
     def __repr__(self):
         return '<Task %>' % self.id
+
 
 
 
@@ -90,7 +92,6 @@ def login():
     return render_template('login.html', form=form)
 
 
-
 @app.route('/logout', methods=['GET', 'POST'])
 @login_required
 def logout():
@@ -112,8 +113,6 @@ def register():
     return render_template('register.html', form=form)
 
     
-
-
 @app.route('/home', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
@@ -146,7 +145,6 @@ def delete(id):
         return 'there was an issue deleting that task'
 
 
-
 @app.route('/update/<int:id>', methods=['GET', 'POST'])
 def update(id):
     task = Todo.query.get_or_404(id)
@@ -162,8 +160,36 @@ def update(id):
     else:
         return render_template('update.html', task=task)
 
+@app.route('/due/<int:id>', methods=['GET', 'POST'])
+def due(id):
+    task = Todo.query.get_or_404(id)
 
+
+    if request.method == 'POST':
+        task.date_due = request.form['duedate']
+
+        try:  
+            db.session.commit()
+            return redirect('/home')
+        except:
+            return "there was a problem updating due date"
+    else:
+        return render_template('dueDate.html', task=task)
     
+@app.route('/completed/<int:id>', methods=['GET', 'POST'])
+def complete(id):
+    task = Todo.query.get_or_404(id)
+    
+    if request.method == 'POST':
+        task.completed = request.form['completed']
+
+        try:  
+            db.session.commit()
+            return redirect('/home')
+        except:
+            return "there was a problem marking task for completion"
+    else:
+        return render_template('completed.html', task=task)
 
 
 if __name__ == "__main__":

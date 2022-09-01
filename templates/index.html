@@ -27,16 +27,17 @@
         <tr>
             <td style="color: white">{{task.content}}</td>
             <td style="color: white">{{task.date_create.date()}}</td>
+            
             <td style="color: white">
+              
                 <div>
-                  <input type="checkbox" id="complete" name="complete">
-                  <label for="complete">Complete</label>
+                  <span>{{task.completed}}</span>
                 </div>
+              
               </td>
               <td style="color: white">
                 <div>
-                  <input type="date" id="duedate" name="due">
-                  <label for="Due-Date"></label>
+                  <input type="date" id="duedate" name="due" value="{{task.date_due}}" disabled>
                 </div>
               <td style="color: white"></td>
             <td>
@@ -44,7 +45,9 @@
 
                     <button style="padding: 2px"><a href="/delete/{{task.id}}">Delete</a></button> 
                      <br>
-                     <button style="padding: 2px"><a href="/update/{{task.id}}">Update</a></button>
+                     <button style="padding: 2px"><a href="/update/{{task.id}}">Update Task</a></button>
+                     <button style="padding: 2px"><a href="/due/{{task.id}}">Set Due Date</a></button>
+                     <button style="padding: 2px"><a href="/completed/{{task.id}}">Completed</a></button>
                 </div>
             </td>
         </tr>
