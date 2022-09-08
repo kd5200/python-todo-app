@@ -1,25 +1,25 @@
 
-body {
-    margin: 0;
-    padding: 2in;
-    font-family: sans-serif;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 100 60'%3E%3Cg %3E%3Crect fill='%236577CC' width='11' height='11'/%3E%3Crect fill='%236878cc' x='10' width='11' height='11'/%3E%3Crect fill='%236c78cd' y='10' width='11' height='11'/%3E%3Crect fill='%236f79cd' x='20' width='11' height='11'/%3E%3Crect fill='%23727ace' x='10' y='10' width='11' height='11'/%3E%3Crect fill='%23757bce' y='20' width='11' height='11'/%3E%3Crect fill='%23787bcf' x='30' width='11' height='11'/%3E%3Crect fill='%237b7ccf' x='20' y='10' width='11' height='11'/%3E%3Crect fill='%237e7dd0' x='10' y='20' width='11' height='11'/%3E%3Crect fill='%23817ed0' y='30' width='11' height='11'/%3E%3Crect fill='%23847ed0' x='40' width='11' height='11'/%3E%3Crect fill='%23877fd1' x='30' y='10' width='11' height='11'/%3E%3Crect fill='%238a80d1' x='20' y='20' width='11' height='11'/%3E%3Crect fill='%238d81d1' x='10' y='30' width='11' height='11'/%3E%3Crect fill='%238f81d2' y='40' width='11' height='11'/%3E%3Crect fill='%239282d2' x='50' width='11' height='11'/%3E%3Crect fill='%239483d2' x='40' y='10' width='11' height='11'/%3E%3Crect fill='%239784d3' x='30' y='20' width='11' height='11'/%3E%3Crect fill='%239a85d3' x='20' y='30' width='11' height='11'/%3E%3Crect fill='%239c86d4' x='10' y='40' width='11' height='11'/%3E%3Crect fill='%239f86d4' y='50' width='11' height='11'/%3E%3Crect fill='%23a187d4' x='60' width='11' height='11'/%3E%3Crect fill='%23a488d4' x='50' y='10' width='11' height='11'/%3E%3Crect fill='%23a689d5' x='40' y='20' width='11' height='11'/%3E%3Crect fill='%23a88ad5' x='30' y='30' width='11' height='11'/%3E%3Crect fill='%23ab8bd5' x='20' y='40' width='11' height='11'/%3E%3Crect fill='%23ad8bd6' x='10' y='50' width='11' height='11'/%3E%3Crect fill='%23af8cd6' x='70' width='11' height='11'/%3E%3Crect fill='%23b28dd6' x='60' y='10' width='11' height='11'/%3E%3Crect fill='%23b48ed7' x='50' y='20' width='11' height='11'/%3E%3Crect fill='%23b68fd7' x='40' y='30' width='11' height='11'/%3E%3Crect fill='%23b890d7' x='30' y='40' width='11' height='11'/%3E%3Crect fill='%23bb91d7' x='20' y='50' width='11' height='11'/%3E%3Crect fill='%23bd92d8' x='80' width='11' height='11'/%3E%3Crect fill='%23bf93d8' x='70' y='10' width='11' height='11'/%3E%3Crect fill='%23c194d8' x='60' y='20' width='11' height='11'/%3E%3Crect fill='%23c395d9' x='50' y='30' width='11' height='11'/%3E%3Crect fill='%23c596d9' x='40' y='40' width='11' height='11'/%3E%3Crect fill='%23c797d9' x='30' y='50' width='11' height='11'/%3E%3Crect fill='%23c998d9' x='90' width='11' height='11'/%3E%3Crect fill='%23cb99da' x='80' y='10' width='11' height='11'/%3E%3Crect fill='%23cd9ada' x='70' y='20' width='11' height='11'/%3E%3Crect fill='%23cf9bda' x='60' y='30' width='11' height='11'/%3E%3Crect fill='%23d19cda' x='50' y='40' width='11' height='11'/%3E%3Crect fill='%23d39ddb' x='40' y='50' width='11' height='11'/%3E%3Crect fill='%23d59edb' x='90' y='10' width='11' height='11'/%3E%3Crect fill='%23d79fdb' x='80' y='20' width='11' height='11'/%3E%3Crect fill='%23d9a0dc' x='70' y='30' width='11' height='11'/%3E%3Crect fill='%23dba1dc' x='60' y='40' width='11' height='11'/%3E%3Crect fill='%23dda2dc' x='50' y='50' width='11' height='11'/%3E%3Crect fill='%23dea3dc' x='90' y='20' width='11' height='11'/%3E%3Crect fill='%23e0a4dd' x='80' y='30' width='11' height='11'/%3E%3Crect fill='%23e2a5dd' x='70' y='40' width='11' height='11'/%3E%3Crect fill='%23e4a6dd' x='60' y='50' width='11' height='11'/%3E%3Crect fill='%23e5a7dd' x='90' y='30' width='11' height='11'/%3E%3Crect fill='%23e7a8de' x='80' y='40' width='11' height='11'/%3E%3Crect fill='%23e9aade' x='70' y='50' width='11' height='11'/%3E%3Crect fill='%23ebabde' x='90' y='40' width='11' height='11'/%3E%3Crect fill='%23ecacdf' x='80' y='50' width='11' height='11'/%3E%3Crect fill='%23EEADDF' x='90' y='50' width='11' height='11'/%3E%3C/g%3E%3C/svg%3E");
-    background-attachment: fixed;
-    background-size: cover;
-    text-align: center;
-    } 
+    body {
+	  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	  background-size: 200% 200%;
+	  animation: gradient 5s ease infinite;
+	  height: 100vh;
+      text-align: center;
+    }
+
+    th {
+        padding-left: 1in;
+
+    }
+
+    tr {
+        padding-left: 1in;
+    }
+
 
 
     h1 {
-    font-size: 55px;
-    color: black;
-    text-align: center;
+        
     }
-
-  .task-table{
-    display: flex;
-    justify-content: center;
-    padding-bottom: 10px;
-  }
 
 

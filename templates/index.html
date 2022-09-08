@@ -4,59 +4,65 @@
 <title>My App</title>
 <a href="{{url_for('logout')}}">Logout</a>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 {% endblock %}
 
 {% block body %} 
 <div class="content">
-    <h1 style="text-align: center; color: black;">My To-Do List</h1>
+  
+    <h1 style="text-align: center; color: white; padding-top: 2in;">My To-Do List</h1>
 
     {% if tasks|length < 1 %}
     <h2 style="text-align: center">There are no tasks. Add one below</h2>
     {% else %}
 
-    <table class="task-table">
-        <tr>
-            <th style="color: white">Task</th>
-            <th style="color: white">Added</th>
-            <th style="color: white">Complete</th>
-            <th style="color: white">Due Date</th>
-            <th style="color: white">Actions</th>
+    <table class="table table-hover">
+        <tr class="padding-left: 1in">
+            <th style=>Task</th>
+            <th style="padding-left: 1in;">Added</th>
+            <th style="padding-left: 1in;">Complete</th>
+            <th style="padding-left: 1in;">Due Date</th>
+            <th style="padding-left: 1in;">Actions</th>
         </tr>
         {% for task in tasks %}
         <tr>
-            <td style="color: white">{{task.content}}</td>
-            <td style="color: white">{{task.date_create.date()}}</td>
+            <td style="color: black">{{task.content}}</td>
+            <td style="color: black">{{task.date_create.date()}}</td>
             
-            <td style="color: white">
+            <td style="color: black">
               
                 <div>
                   <span>{{task.completed}}</span>
                 </div>
               
               </td>
-              <td style="color: white">
+              <td style="color: black">
                 <div>
                   <input type="date" id="duedate" name="due" value="{{task.date_due}}" disabled>
                 </div>
-              <td style="color: white"></td>
+              <td style="color: black"></td>
             <td>
-                <div style="display: flex; justify-content: space-around">
+                <div style="display: flex; justify-content: space-evenly;">
 
-                    <button style="padding: 2px"><a href="/delete/{{task.id}}">Delete</a></button> 
-                     <br>
-                     <button style="padding: 2px"><a href="/update/{{task.id}}">Update Task</a></button>
-                     <button style="padding: 2px"><a href="/due/{{task.id}}">Set Due Date</a></button>
-                     <button style="padding: 2px"><a href="/completed/{{task.id}}">Completed</a></button>
+                    <button><a href="/delete/{{task.id}}"><ion-icon name="trash">Delete</ion-icon></a></button> 
+                     <button><a href="/update/{{task.id}}"><ion-icon name="create">Update Task</ion-icon></a></button>
+                     <button><a href="/due/{{task.id}}"><ion-icon name="calendar">Set Due Date</ion-icon></a></button>
+                     <button><a href="/completed/{{task.id}}"><ion-icon name="checkmark-circle">Completed</ion-icon></a></button>
                 </div>
             </td>
         </tr>
         {% endfor %}
     </table>
     {% endif %}
+   
     <form action="/home" method="POST" name="myform">
         <input type="text" name="content" id="content">
         <input type="submit" value="Add Task">
-    </form>
+    </form> 
 </div>
 {% endblock %}
