@@ -7,7 +7,7 @@
 - Read All Tasks From DB
 - Update Task
 - Delete Task 
-- (Hahah CRUD)
+- (CRUD Functions)
 - Logs In User
 - Registers New Users 
 - Logs Out Users
@@ -34,12 +34,17 @@
 
  ## My UI 
  #
- **Login In Page** ![SignInPage](./static/images/login_page.PNG)
+ **Login In Page** ![SignInPage](./static/images/Login_pg.PNG)
 
- **Register Page** ![RegistrationPage](./static/images/registration_page.PNG)
+ **Register Page** ![RegistrationPage](./static/images/register_pg.PNG)
 
- **Task Page** ![TaskPage](./static/images/Homepage_2.PNG)
+ **Task Page** ![TaskPage](./static/images/tasklist.PNG)
 
 
- **Update Page** ![UpdatePage](./static/images/update_page.PNG)
+ **Update Page** ![UpdatePage](./static/images/update.PNG)
+
+ **Complete Task Page** ![CompletePage](./static/images/complete.PNG)
+
+ **Select Due Date For Task** ![DueDatePage](./static/images/duedate.PNG)
+
  #

@@ -18,8 +18,17 @@
 
 
 
+    
     h1 {
-        
+            text-align: center;
+            color: white;
+            font-size: 30px;
     }
 
+    .myHover{
+        background-color: gray; 
+    }
 
+    .myHover:hover {
+        background-color: #ee7752;
+    }
